@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn HTML basics - Day 4">
+  <title>Day 3 - HTML Media and Best Practices</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #2c3e50;
+    }
+    video, audio, iframe {
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Day 3: HTML Media, Meta Tags & Best Practices</h1>
+
+  <h2>1. Embedded Video</h2>
+  <video src="media/sample.mp4" controls autoplay loop width="320"></video>
+
+  <h2>2. Embedded Audio</h2>
+  <audio controls>
+    <source src="media/sample.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <h2>3. YouTube Iframe</h2>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+
+  <h2>4. Google Map Iframe</h2>
+  <iframe src="https://maps.google.com/maps?q=India&t=&z=5&ie=UTF8&iwloc=&output=embed" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+  <h2>5. File Path Example</h2>
+  <p>Image using relative path:</p>
+  <img src="images/example.jpg" alt="Example Image" width="200">
+
+  <h2>6. Accessibility & Semantics</h2>
+  <main>
+    <article>
+      <h3>Contact Form</h3>
+      <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" aria-label="Name field"><br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br><br>
+        <input type="submit" value="Submit">
+      </form>
+    </article>
+  </main>
+
+  <!-- End of Day 4 HTML Practice -->
+</body>
+</html>

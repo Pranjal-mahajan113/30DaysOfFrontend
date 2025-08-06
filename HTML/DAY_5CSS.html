@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSS Day 5 - Basics & Selectors</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<style>
+    /* Universal Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+  font-family: Arial, sans-serif;
+  padding: 40px;
+  background-color: #f2f2f2;
+}
+
+/* Profile Card Styling */
+.profile-card {
+  width: 300px;
+  background: #cdacac;
+  border: 2px solid #851212;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: box-shadow 0.3s ease;
+}
+
+/* Hover effect on card */
+.profile-card:hover {
+  box-shadow: 0 0 10px rgba(6, 156, 64, 0.2);
+}
+
+/* Profile Image */
+.profile-img {
+  width: 100%;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+/* Name Styling */
+.name {
+  text-align: center;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+
+
+/* ID Selector */
+#info-box {
+  background-color: #645454;
+  padding: 15px;
+  border-left: 4px solid #333;
+}
+
+</style>
+<body>
+  <div class="profile-card">
+    <img src="/download.jpg" alt="Profile" class="profile-img" />
+    <h2 class="name">Vaishanv Doe</h2>
+    <p class="bio">Web Developer from India.</p>
+    <p class="bio">Loves CSS and design.</p>
+    <p class="bio">Learning step by step!</p>
+  </div>
+
+  <div id="info-box">
+    <h3>More Info</h3>
+    <ul>
+      <li>Uses HTML, CSS, JS</li>
+      <li>Passionate about Frontend</li>
+    </ul>
+  </div>
+</body>
+</html>
