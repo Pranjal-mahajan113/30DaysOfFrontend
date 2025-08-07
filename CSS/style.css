@@ -1,0 +1,102 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base Styles */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  /* scroll-behavior: smooth; */
+  /* padding-top: 80px; for sticky header space */
+}
+
+/* Sticky Header */
+.sticky-header {
+  background-color: #9d0b0b;
+  color: white;
+  padding: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  text-align: center;
+}
+
+/* Navbar using Flexbox */
+.navbar {
+  display: flex;
+  justify-content: center;
+  background-color: #444;
+  gap: 20px;
+  padding: 15px 0;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.navbar a:hover {
+  text-decoration: underline;
+}
+
+/* Flexbox 2-Column Layout */
+.layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Sidebar */
+.sidebar {
+  flex: 1 1 25%;
+  background-color: #f8f8f8;
+  padding: 15px;
+  min-width: 200px;
+}
+
+/* Content */
+.content {
+  flex: 1 1 70%;
+  background-color: #e3f2fd;
+  padding: 15px;
+  min-width: 300px;
+}
+
+/* Overflow Box */
+.overflow-box {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  height: 100px;
+  overflow-y: scroll;
+  margin-top: 20px;
+}
+
+/* Units Example */
+.sidebar h2 {
+  font-size: 2em;
+}
+
+.content h2 {
+  font-size: 1.5rem;
+}
+
+.content p {
+  margin-top: 1em;
+}
+
+/* Responsive - Optional
+@media screen and (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .sidebar, .content {
+    flex: 1 1 100%;
+  }
+} */
