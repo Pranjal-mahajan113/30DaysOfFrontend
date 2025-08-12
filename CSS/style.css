@@ -54,15 +54,16 @@ body {
 /* Sidebar */
 .sidebar {
   flex: 1 1 25%;
-  background-color: #f8f8f8;
+  background-color: #da6b6b;
   padding: 15px;
   min-width: 200px;
+  overflow-y: auto;
 }
 
 /* Content */
 .content {
   flex: 1 1 70%;
-  background-color: #e3f2fd;
+  background-color: #427295;
   padding: 15px;
   min-width: 300px;
 }
@@ -72,7 +73,7 @@ body {
   background-color: #fff;
   border: 1px solid #ccc;
   padding: 10px;
-  height: 100px;
+  height: 200px;
   overflow-y: scroll;
   margin-top: 20px;
 }

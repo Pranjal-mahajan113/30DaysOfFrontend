@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Grid Full Guide with Examples</title>
+   <link rel="stylesheet" href="DAY7.css" />
+
+
+</head>
+
+<body>
+
+  <section>
+    <h2>1. Basic Grid</h2>
+    <p>Using fixed columns & rows with grid-template-columns and grid-template-rows.</p>
+    <div class="example-grid basic-grid">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>2. Fractions & Repeat</h2>
+    <p>Using <code>fr</code> unit and <code>repeat()</code> function for equal columns.</p>
+    <div class="example-grid fraction-grid">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>3. Minmax & Responsive</h2>
+    <p>Using minmax() with auto-fit for responsive grids.</p>
+    <div class="example-grid minmax-grid">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>4. Spanning Items</h2>
+    <p>Making items span multiple columns or rows using <code>grid-column</code> and <code>grid-row</code>.</p>
+    <div class="example-grid span-grid">
+      <div class="wide">Wide</div>
+      <div>2</div>
+      <div class="tall">Tall</div>
+      <div>4</div>
+      <div>5</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>5. Named Areas</h2>
+    <p>Creating named grid areas for cleaner layout definition.</p>
+    <div class="example-grid area-grid">
+      <div class="header">Header</div>
+      <div class="sidebar">Sidebar</div>
+      <div class="content">Content</div>
+      <div class="footer">Footer</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>6. Implicit Grid</h2>
+    <p>Adding extra items creates new rows automatically, sized by <code>grid-auto-rows</code>.</p>
+    <div class="example-grid implicit-grid">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>7. Alignment (Items)</h2>
+    <p>Using justify-content and align-items to align content in cells.</p>
+    <div class="example-grid align-grid">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>8. Content Alignment (Grid)</h2>
+    <p>Using <code>justify-content</code> and <code>align-content</code> to align the entire grid.</p>
+    <div class="example-grid content-align-grid">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>9. Grid Auto Flow</h2>
+    <p>Using <code>grid-auto-flow</code> to control item placement order.</p>
+    <div class="example-grid flow-grid">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>10. Overlapping Items</h2>
+    <p>Placing items in the same grid cells to overlap them.</p>
+    <div class="example-grid overlap-grid">
+      <div>Red</div>
+      <div>Blue</div>
+    </div>
+  </section>
+
+</body>
+
+</html>
