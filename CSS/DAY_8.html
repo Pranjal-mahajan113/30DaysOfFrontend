@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Colors & Backgrounds</title>
+    <style>
+        /* Colors quick recap:
+     - HEX: #rrggbb
+     - RGBA: red, green, blue, alpha (opacity 0–1)
+     - HSL: hue, saturation, lightness (intuitive tweaks)
+  */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, Arial, sans-serif;
+            margin: 0;
+            padding: 24px;
+            background: #f8fafc;
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 12px;
+        }
+
+        .box {
+            min-height: 110px;
+            border-radius: 12px;
+            padding: 12px;
+            color: #fff;
+            font-weight: 600;
+            display: flex;
+            align-items: end;
+        }
+
+        /* 1) background-color with different color notations */
+        .hex {
+            background-color: #ef4444;
+        }
+
+        /* HEX */
+        .rgba {
+            background-color: rgba(34, 197, 94, 0.75);
+        }
+
+        /* RGBA */
+        .hsl {
+            background-color: hsl(220 90% 60%);
+        }
+
+        /* HSL */
+
+        /* 2) background-image with gradients (no external image needed) */
+        .linear {
+            background-image: linear-gradient(135deg, #06b6d4, #3b82f6);
+        }
+
+        .radial {
+            background-image: radial-gradient(circle at 30% 40%, #f97316, #7c2d12);
+        }
+
+        /* 3) Pattern via layered gradient */
+        .pattern {
+            background-color: #6366f1;
+            background-image:
+                linear-gradient(45deg,
+                    rgba(255, 255, 255, .22) 25%, transparent 25%,
+                    transparent 50%, rgba(255, 255, 255, .22) 50%,
+                    rgba(255, 255, 255, .22) 75%, transparent 75%, transparent);
+            background-size: 25px 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1> Colors & Backgrounds</h1>
+    <p>HEX, RGBA, HSL + <code>background-color</code> & <code>background-image</code> (gradients).</p>
+
+    <div class="grid">
+        <div class="box hex">HEX: #ef4444</div>
+        <div class="box rgba">RGBA: rgba(34,197,94,0.75)</div>
+        <div class="box hsl">HSL: hsl(220 90% 60%)</div>
+        <div class="box linear">linear-gradient()</div>
+        <div class="box radial">radial-gradient()</div>
+        <div class="box pattern">pattern via gradient</div>
+    </div>
+</body>
+
+</html>
+
+
+<!-- 0deg → bottom se top
+
+90deg → left se right
+
+180deg → top se bottom
+
+270deg → right se left
+
+45deg → diagonal (bottom-left → top-right) -->
+
+
+
+
