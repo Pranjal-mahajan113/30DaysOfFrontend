@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> DAY-9 Typography</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, Arial, sans-serif;
+            margin: 0;
+            padding: 24px;
+            background: #9bacbd;
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .card {
+            background: #d7b7b7;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 12px;
+            padding: 14px;
+        }
+
+        /* 1) text-align */
+        .left {
+            text-align: left;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .right {
+            text-align: right;
+        }
+
+        /* 2) font-family fallback stacks */
+        .serif {
+            font-family: Georgia, "Times New Roman", serif;
+        }
+
+        .sans {
+            font-family: "Segoe UI", Roboto, Arial, sans-serif;
+        }
+
+        /* 3) font-size (use relative units for scalability) */
+        .fs12 {
+            font-size: 0.75rem;
+        }
+
+        /* ≈12px */
+        .fs16 {
+            font-size: 1rem;
+        }
+
+        /* ≈16px (base) */
+        .fs20 {
+            font-size: 1.25rem;
+        }
+
+        /* ≈20px */
+
+        /* 4) line-height */
+        .tight {
+            line-height: 1.2;
+        }
+
+        .normal {
+            line-height: 1.6;
+        }
+
+        .loose {
+            line-height: 1.9;
+        }
+
+        /* Bonus: responsive heading size with clamp(min, fluid, max) */
+        h2 {
+            font-size: clamp(18px, 2.5vw, 28px);
+            margin: 0 0 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Typography</h1>
+
+    <div class="grid">
+        <div class="card left">
+            <h2>text-align: left</h2>
+            <p>Yeh paragraph left aligned hai.</p>
+        </div>
+        <div class="card center">
+            <h2>text-align: center</h2>
+            <p>Yeh paragraph center aligned hai.</p>
+        </div>
+        <div class="card right">
+            <h2>text-align: right</h2>
+            <p>Yeh paragraph right aligned hai.</p>
+        </div>
+
+        <div class="card serif">
+            <h2>font-family: serif stack</h2>
+            <p>Georgia / Times style serif font.</p>
+        </div>
+        <div class="card sans">
+            <h2>font-family: sans-serif stack</h2>
+            <p>Segoe UI / Roboto style sans-serif.</p>
+        </div>
+
+        <div class="card">
+            <h2>font-size (rem)</h2>
+            <p class="fs12">0.75rem — chhota</p>
+            <p class="fs16">1rem — normal</p>
+            <p class="fs20">1.25rem — thoda bada</p>
+        </div>
+
+        <div class="card">
+            <h2>line-height</h2>
+            <p class="tight">Tight (1.2) lines jaldi chipak jaati hain.</p>
+            <p class="normal">Normal (1.6) sabse readable hota hai for body text.</p>
+            <p class="loose">Loose (1.9) airy feel deta hai.</p>
+        </div>
+    </div>
+</body>
+
+</html>

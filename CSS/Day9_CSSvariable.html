@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <!-- Meta viewport: bina iske mobile me zoom/scale gadbad ho sakta hai -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day-9 Viewport & CSS Variables</title>
+    <style>
+        /* CSS Variables define once, reuse with var(--token) */
+        :root {
+            --brand: #6c5ce7;
+            --text: #111827;
+            --radius: 14px;
+            --pad: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, Arial, sans-serif;
+            margin: 0;
+            padding: 24px;
+            background: #f8fafc;
+            color: var(--text);
+        }
+
+
+        .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 14px;
+        }
+
+        .card {
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: var(--radius);
+            padding: var(--pad);
+            background: #937070;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 14px;
+            border-radius: 999px;
+            color: #fff;
+            background: var(--brand);
+            /* variable used here */
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Any element can override variables locally */
+        .alt-scheme {
+            --brand: #10b981;
+        }
+
+        /* green */
+        .warn-scheme {
+            --brand: #ef4444;
+        }
+
+        /* red  */
+    </style>
+</head>
+
+<body>
+    <h1>Meta Viewport & CSS Variables</h1>
+    <p>Variables se theme/color reuse & override bahut easy hota hai.</p>
+
+    <div class="row">
+        <div class="card">
+            <h2>Default Scheme</h2>
+            <p>is box me <code>--brand</code> = purple.</p>
+            <a class="btn" href="#">Primary Button</a>
+        </div>
+
+        <div class="card alt-scheme">
+            <h2>Alt Scheme</h2>
+            <p>yahan <code>--brand</code> = green (locally override).</p>
+            <a class="btn" href="#">Primary Button</a>
+        </div>
+
+        <div class="card warn-scheme">
+            <h2>Warn Scheme</h2>
+            <p>yahan <code>--brand</code> = red.</p>
+            <a class="btn" href="#">Primary Button</a>
+        </div>
+    </div>
+</body>
+
+</html>
