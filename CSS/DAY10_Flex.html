@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Day-10 Flexbox Properties</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #957070;
+      padding: 20px;
+    }
+
+
+    .container {
+      display: flex;
+      border: 2px solid #333;
+      padding: 10px;
+      margin-bottom: 20px;
+      background: white;
+    }
+
+    .box {
+      background: rgb(197, 54, 54);
+      color: white;
+      padding: 20px;
+      text-align: center;
+      margin: 5px;
+      font-weight: bold;
+    }
+
+    /* 1. flex-direction */
+    .row {
+      flex-direction: row; /* default: left to right */
+    }
+
+    .row-reverse {
+      flex-direction: row-reverse;
+    }
+
+    .column {
+      flex-direction: column;
+    }
+
+    .column-reverse {
+      flex-direction: column-reverse;
+    }
+
+    /* 2. justify-content */
+    .justify-center {
+      justify-content: center;
+    }
+
+    .justify-between {
+      justify-content: space-between;
+    }
+
+    .justify-around {
+      justify-content: space-around;
+    }
+
+    /* 3. align-items */
+    .align-center {
+      align-items: center;
+      height: 150px; /* for vertical space */
+    }
+
+    .align-end {
+      align-items: flex-end;
+      height: 150px;
+    }
+
+    /* 4. flex-wrap */
+    .wrap {
+      flex-wrap: wrap;
+    }
+
+    /* 5. flex-grow, flex-shrink, flex-basis */
+    .grow > div {
+      flex-grow: 1;
+    }
+
+    .shrink > div {
+      flex-shrink: 1;
+      flex-basis: 200px;
+    }
+
+    /* 6. order */
+    .order div:nth-child(1) { order: 3; }
+    .order div:nth-child(2) { order: 1; }
+    .order div:nth-child(3) { order: 2; }
+
+    /* 7. align-self */
+    .self > div:nth-child(2) {
+      align-self: flex-end;
+    }
+  </style>
+</head>
+<body>
+  <h1>Flexbox Property Examples</h1>
+
+  <h2>flex-direction</h2>
+  <div class="container row">
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+  </div>
+
+  <div class="container column">
+    <div class="box">A</div>
+    <div class="box">B</div>
+    <div class="box">C</div>
+  </div>
+
+  <h2>justify-content</h2>
+  <div class="container justify-center">
+    <div class="box">1</div>
+    <div class="box">2</div>
+  </div>
+
+  <div class="container justify-between">
+    <div class="box">1</div>
+    <div class="box">2</div>
+  </div>
+
+  <div class="container justify-around">
+    <div class="box">1</div>
+    <div class="box">2</div>
+  </div>
+
+  <h2>align-items</h2>
+  <div class="container align-center">
+    <div class="box">Tall</div>
+    <div class="box" style="height:60px;">Short</div>
+  </div>
+
+  <div class="container align-end">
+    <div class="box">Tall</div>
+    <div class="box" style="height:60px;">Short</div>
+  </div>
+
+  <h2>flex-wrap</h2>
+  <div class="container wrap">
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+    <div class="box">4</div>
+    <div class="box">5</div>
+  </div>
+
+  <h2>flex-grow</h2>
+  <div class="container grow">
+    <div class="box">Grow 1</div>
+    <div class="box">Grow 1</div>
+  </div>
+
+  <h2>flex-shrink</h2>
+  <div class="container shrink" style="width:300px;">
+    <div class="box">Shrink</div>
+    <div class="box">Shrink</div>
+  </div>
+
+  <h2>order</h2>
+  <div class="container order">
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+  </div>
+
+  <h2>align-self</h2>
+  <div class="container self" style="height:150px; align-items:flex-start;">
+    <div class="box">Top</div>
+    <div class="box">Bottom</div>
+    <div class="box">Top</div>
+  </div>
+</body>
+</html>
