@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 11  Transitions & Transforms </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f7f7;
+            padding: 20px;
+            text-align: center;
+        }
+
+        
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .box {
+            width: 120px;
+            height: 120px;
+            background: #06b6d4;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.8s ease;
+            /* default transition */
+        }
+
+        /* ---------- TRANSFORM ---------- */
+
+        /* scale */
+        .scale:hover {
+            transform: scale(1.4);
+        }
+
+        /* scaleX and scaleY */
+        .scale-x:hover {
+            transform: scaleX(2.5);
+        }
+
+        .scale-y:hover {
+            transform: scaleY(1.5);
+        }
+
+        /* rotate */
+        .rotate:hover {
+            transform: rotate(135deg);
+        }
+
+        /* translate */
+        .translate:hover {
+            transform: translate(40px, -20px);
+        }
+
+        /* skew */
+        .skew:hover {
+            transform: skew(10deg, 10deg);
+        }
+
+        /* multiple transforms */
+        .combo:hover {
+            transform: translateY(-20px) rotate(15deg) scale(1.2);
+        }
+
+        /* transform-origin */
+        .origin {
+            transform-origin: left bottom;
+        }
+
+        .origin:hover {
+            transform: rotate(30deg);
+        }
+
+        /* ---------- TRANSITION ---------- */
+
+        /* duration */
+        .duration {
+            transition-duration: 2s;
+        }
+
+        .duration:hover {
+            background: #ff6b6b;
+            transform: scale(1.2);
+        }
+
+        /* timing functions */
+        .ease {
+            transition: transform 1s ease;
+        }
+
+        .linear {
+            transition: transform 1s linear;
+        }
+
+        .ease-in {
+            transition: transform 1s ease-in;
+        }
+
+        .ease-out {
+            transition: transform 1s ease-out;
+        }
+
+        .ease-in-out {
+            transition: transform 1s ease-in-out;
+        }
+
+        .ease:hover,
+        .linear:hover,
+        .ease-in:hover,
+        .ease-out:hover,
+        .ease-in-out:hover {
+            transform: translateY(-30px);
+            background: #10b981;
+        }
+
+        /* delay */
+        .delay {
+            transition:  1s ease ;
+        }
+
+        .delay:hover {
+            background: #f59e0b;
+        }
+    </style>
+</head>
+
+<body>
+
+   
+
+    
+    <div class="container">
+        <div class="box scale">scale()</div>
+        <div class="box scale-x">scaleX()</div>
+        <div class="box scale-y">scaleY()</div>
+        <div class="box rotate">rotate()</div>
+        <div class="box translate">translate()</div>
+        <div class="box skew">skew()</div>
+        <div class="box combo">combo</div>
+        <div class="box origin">origin</div>
+    </div>
+
+    <h2>Transition Examples</h2>
+    <div class="container">
+        <div class="box duration">duration</div>
+        <div class="box ease">ease</div>
+        <div class="box linear">linear</div>
+        <div class="box ease-in">ease-in</div>
+        <div class="box ease-out">ease-out</div>
+        <div class="box ease-in-out">ease-in-out</div>
+        <div class="box delay">delay</div>
+    </div>
+
+</body>
+
+</html>

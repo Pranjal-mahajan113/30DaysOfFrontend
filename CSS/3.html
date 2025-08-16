@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            margin: 15px;
+            background: tomato;
+            transition: all 2s ease;
+        }
+
+        .linear {
+            transition-timing-function: linear;
+        }
+
+        .easein {
+            transition-timing-function: ease-in;
+        }
+
+        .easeout {
+            transition-timing-function: ease-out;
+        }
+
+        .easeinout {
+            transition-timing-function: ease-in-out;
+        }
+
+        .box:hover {
+            width: 200px;
+            background: lightgreen;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box linear">linear</div>
+    <div class="box easein">ease-in</div>
+    <div class="box easeout">ease-out</div>
+    <div class="box easeinout">ease-in-out</div>
+
+</body>
+
+</html>
