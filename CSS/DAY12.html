@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 12  CSS Animations </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            margin: 30px 0 15px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background: #06b6d4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        /* -------- Keyframes -------- */
+        @keyframes move {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-50px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes colorChange {
+            0% {
+                background: #06b6d4;
+            }
+
+            50% {
+                background: #f59e0b;
+            }
+
+            100% {
+                background: #06b6d4;
+            }
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* -------- Animation Examples -------- */
+
+        /* duration */
+        .duration {
+            animation: move 2s infinite;
+        }
+
+        /* delay */
+        .delay {
+            animation: move 2s 1s infinite;
+        }
+
+        /* iteration-count */
+        .count {
+            animation: rotate 1s linear 3;
+        }
+
+        /* direction */
+        .alternate {
+            animation: move 2s infinite alternate;
+        }
+
+        .reverse {
+            animation: move 2s infinite reverse;
+        }
+
+        /* timing-function */
+        .ease {
+            animation: move 2s ease infinite;
+        }
+
+        .linear {
+            animation: move 2s linear infinite;
+        }
+
+        .ease-in {
+            animation: move 2s ease-in infinite;
+        }
+
+        .ease-out {
+            animation: move 2s ease-out infinite;
+        }
+
+        .ease-in-out {
+            animation: move 2s ease-in-out infinite;
+        }
+
+        /* fill-mode */
+        .forwards {
+            animation: colorChange 1s forwards;
+        }
+
+        .backwards {
+            animation: colorChange 0.8s backwards;
+        }
+
+        .both {
+            animation: colorChange 2s both;
+        }
+
+        /* play-state (hover to pause) */
+        .pause {
+            animation: rotate 3s linear infinite;
+        }
+
+        .pause:hover {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+
+<body>
+    
+
+    <h2>Duration & Delay</h2>
+    <div class="container">
+        <div class="box duration">duration</div>
+        <div class="box delay">delay</div>
+    </div>
+
+    <h2> Iteration Count & Direction</h2>
+    <div class="container">
+        <div class="box count">count=3</div>
+        <div class="box alternate">alternate</div>
+        <div class="box reverse">reverse</div>
+    </div>
+
+    <h2> Timing Functions</h2>
+    <div class="container">
+        <div class="box ease">ease</div>
+        <div class="box linear">linear</div>
+        <div class="box ease-in">ease-in</div>
+        <div class="box ease-out">ease-out</div>
+        <div class="box ease-in-out">ease-in-out</div>
+    </div>
+
+    <h2>Fill Mode</h2>
+    <div class="container">
+        <div class="box forwards">forwards</div>
+        <div class="box backwards">backwards</div>
+        <div class="box both">both</div>
+    </div>
+
+    <h2> Play State</h2>
+    <div class="container">
+        <div class="box pause">pause ⏯</div>
+    </div>
+</body>
+
+</html>
