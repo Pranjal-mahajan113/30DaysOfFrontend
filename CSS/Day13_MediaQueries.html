@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+ 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Media Queries</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, Arial, sans-serif;
+      margin: 0;
+      padding: 24px;
+      background: #f8fafc;
+      transition: background 0.5s ease;
+    }
+
+  
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: #be7676;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: background 0.5s ease;
+    }
+
+    /* Base (Mobile) */
+    body {
+      background: #fce7f3; /* light pink */
+    }
+    .card {
+      background: #be7676; /* red */
+    }
+
+    /* ≥600px: Tablet */
+    @media (min-width: 600px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      body {
+        background: #dbeafe; /* light blue */
+      }
+
+      .card {
+        background: #2563eb; /* blue */
+      }
+    }
+
+    /* ≥900px: Desktop */
+    @media (min-width: 900px) {
+      .grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      body {
+        background: #dcfce7; /* light green */
+      }
+
+      .card {
+        background: #16a34a; /* green */
+      }
+    }
+  </style>
+</head>
+
+<body>
+  
+  <p style="text-align:center">Resize your screen → Layout + Colors change</p>
+
+  <div class="grid">
+    <div class="card">Card 1</div>
+    <div class="card">Card 2</div>
+    <div class="card">Card 3</div>
+    <div class="card">Card 4</div>
+    <div class="card">Card 5</div>
+    <div class="card">Card 6</div>
+  </div>
+</body>
+</html>
