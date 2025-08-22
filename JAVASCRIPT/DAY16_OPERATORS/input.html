@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive JS Operators Playground</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h1 {
+      color: #2c3e50;
+    }
+
+    section {
+      margin-bottom: 30px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+
+    input {
+      margin: 5px;
+      width: 80px;
+    }
+
+    button {
+      margin: 5px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    pre {
+      background: #f4f4f4;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Interactive JS Operators Playground</h1>
+
+  <!-- Arithmetic Operators -->
+  <section>
+    <h2>Arithmetic Operators</h2>
+    <input type="number" id="a" placeholder="a" value="10">
+    <input type="number" id="b" placeholder="b" value="3">
+    <button onclick="calculateArithmetic()">Calculate</button>
+    <pre id="arithmeticResult"></pre>
+  </section>
+
+  <!-- Comparison Operators -->
+  <section>
+    <h2>Comparison Operators</h2>
+    <input type="number" id="c1" placeholder="c1" value="10">
+    <input type="number" id="c2" placeholder="c2" value="3">
+    <button onclick="calculateComparison()">Compare</button>
+    <pre id="comparisonResult"></pre>
+  </section>
+
+  <!-- Logical Operators -->
+  <section>
+    <h2>Logical Operators</h2>
+    <select id="logicX">
+      <option value="true">true</option>
+      <option value="false">false</option>
+    </select>
+    <select id="logicY">
+      <option value="true">true</option>
+      <option value="false">false</option>
+    </select>
+    <button onclick="calculateLogical()">Evaluate</button>
+    <pre id="logicalResult"></pre>
+  </section>
+
+  <!-- Ternary Operator -->
+  <section>
+    <h2>Ternary Operator</h2>
+    <input type="number" id="age" placeholder="Age" value="18">
+    <button onclick="checkTernary()">Check</button>
+    <pre id="ternaryResult"></pre>
+  </section>
+
+  <!-- Bitwise Operators -->
+  <section>
+    <h2>Bitwise Operators</h2>
+    <input type="number" id="bit1" placeholder="x" value="5">
+    <input type="number" id="bit2" placeholder="y" value="3">
+    <button onclick="calculateBitwise()">Compute</button>
+    <pre id="bitwiseResult"></pre>
+  </section>
+
+  <!-- String Operators -->
+  <section>
+    <h2>String Operators</h2>
+    <input type="text" id="str1" placeholder="String 1" value="Hello">
+    <input type="text" id="str2" placeholder="String 2" value="World">
+    <button onclick="calculateString()">Combine</button>
+    <pre id="stringResult"></pre>
+  </section>
+
+  <script>
+    function calculateArithmetic() {
+      let a = Number(document.getElementById('a').value);
+      let b = Number(document.getElementById('b').value);
+      document.getElementById('arithmeticResult').textContent = `
+a + b = ${a + b}
+a - b = ${a - b}
+a * b = ${a * b}
+a / b = ${a / b}
+a % b = ${a % b}
+a ** b = ${a ** b}
+    `;
+    }
+
+    function calculateComparison() {
+      let c1 = Number(document.getElementById('c1').value);
+      let c2 = Number(document.getElementById('c2').value);
+      document.getElementById('comparisonResult').textContent = `
+c1 == c2 : ${c1 == c2}
+c1 === c2 : ${c1 === c2}
+c1 != c2 : ${c1 != c2}
+c1 !== c2 : ${c1 !== c2}
+c1 > c2 : ${c1 > c2}
+c1 < c2 : ${c1 < c2}
+c1 >= c2 : ${c1 >= c2}
+c1 <= c2 : ${c1 <= c2}
+    `;
+    }
+
+    function calculateLogical() {
+      let x = document.getElementById('logicX').value === 'true';
+      let y = document.getElementById('logicY').value === 'true';
+      document.getElementById('logicalResult').textContent = `
+x && y = ${x && y}
+x || y = ${x || y}
+!x = ${!x}
+!y = ${!y}
+    `;
+    }
+
+    function checkTernary() {
+      let age = Number(document.getElementById('age').value);
+      let result = (age >= 18) ? "Can vote ✅" : "Cannot vote ❌";
+      document.getElementById('ternaryResult').textContent = result;
+    }
+
+    function calculateBitwise() {
+      let x = Number(document.getElementById('bit1').value);
+      let y = Number(document.getElementById('bit2').value);
+      document.getElementById('bitwiseResult').textContent = `
+x & y = ${x & y}
+x | y = ${x | y}
+x ^ y = ${x ^ y}
+~x = ${~x}
+x << 1 = ${x << 1}
+x >> 1 = ${x >> 1}
+x >>> 1 = ${x >>> 1}
+    `;
+    }
+
+    function calculateString() {
+      let s1 = document.getElementById('str1').value;
+      let s2 = document.getElementById('str2').value;
+      let combined = s1 + " " + s2;
+      document.getElementById('stringResult').textContent = `
+Combined: ${combined}
+After += operation: ${s1 += " " + s2}
+    `;
+    }
+  </script>
+
+</body>
+
+</html>
