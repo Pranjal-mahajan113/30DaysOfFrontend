@@ -21,7 +21,7 @@ sayHi();
 // ------------------------------------
 // 3. Function Declaration
 // ------------------------------------
-// ✅ Function Declaration = Function Statement
+//  Function Declaration = Function Statement
 // They are SAME in JS
 function add(a, b) {
     return a + b;
