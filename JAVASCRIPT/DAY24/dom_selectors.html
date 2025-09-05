@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 24 — DOM Tree & Selectors</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .list-item {
+            margin: 5px 0;
+            color: darkblue;
+        }
+
+        .highlight {
+            background-color: yellow;
+        }
+
+        .red {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Heading with ID -->
+    <h1 id="main-title">Welcome to DOM Selectors</h1>
+
+    <!-- Paragraphs -->
+    <p class="info">This is the first paragraph.</p>
+    <p class="info">This is another paragraph.</p>
+
+    <!-- List of items -->
+    <ul>
+        <li class="list-item">Item 1</li>
+        <li class="list-item">Item 2</li>
+        <li class="list-item">Item 3</li>
+    </ul>
+
+    <script>
+        // ===============================
+        // Day 24 — DOM Tree & Selectors
+        // ===============================
+
+        // The DOM (Document Object Model) is like a family tree of your webpage.
+        // Each element is a "node" you can access and change.
+
+        // --- Selecting by ID ---
+        // getElementById() → Selects ONE element by its unique ID
+        const title = document.getElementById("main-title");
+        console.log("ID Selector:", title);
+        // Example action: change color of title
+        title.style.color = "green";
+
+        // --- Selecting by Class ---
+        // getElementsByClassName() → Selects ALL elements with the given class (HTMLCollection)
+        const paragraphs = document.getElementsByClassName("info");
+        console.log("Class Selector (HTMLCollection):", paragraphs);
+
+        // Looping through HTMLCollection to style each paragraph
+        for (let p of paragraphs) {
+            p.style.fontWeight = "bold";
+            p.classList.add("red"); // adding a new CSS class
+        }
+
+        // --- querySelector vs querySelectorAll ---
+        // querySelector → Selects the first element that matches
+        const firstParagraph = document.querySelector(".info");
+        console.log("querySelector (first .info):", firstParagraph);
+
+        // querySelectorAll → Selects ALL matching elements (NodeList)
+        const allItems = document.querySelectorAll(".list-item");
+        console.log("querySelectorAll (.list-item):", allItems);
+
+        // Highlight all list items using classList
+        allItems.forEach(item => {
+            item.classList.add("highlight");
+        });
+
+        // --- Real Life Analogy ---
+        // - ID selector → like searching contact by exact phone number (unique)
+        // - Class selector → like searching all contacts with the same tag "friends"
+        // - querySelector → find the first match only
+        // - querySelectorAll → find every match
+    </script>
+
+</body>
+
+</html>

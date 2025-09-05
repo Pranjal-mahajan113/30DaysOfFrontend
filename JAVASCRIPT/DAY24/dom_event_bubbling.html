@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 24 — Event Bubbling, Delegation & Forms</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    #parent {
+      border: 2px solid blue;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    #child {
+      border: 2px solid red;
+      padding: 20px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      padding: 10px;
+      border: 1px solid #ddd;
+      margin: 5px;
+      cursor: pointer;
+    }
+    li:hover {
+      background: #f0f0f0;
+    }
+    .form-box {
+      margin-top: 20px;
+      padding: 15px;
+      border: 2px solid green;
+      width: 300px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Day 24 — Event Bubbling, Delegation & Forms</h1>
+
+  <!-- ===================== -->
+  <!-- Event Bubbling Example -->
+  <!-- ===================== -->
+  <h2>1. Event Bubbling</h2>
+  <div id="parent">
+    Parent (Blue Border)
+    <div id="child">Child (Red Border)</div>
+  </div>
+  <!-- Real-life analogy: gossip spreads upward from child → parent → grandparent -->
+
+  <!-- ===================== -->
+  <!-- Event Delegation Example -->
+  <!-- ===================== -->
+  <h2>2. Event Delegation</h2>
+  <ul id="list">
+    <li>🍎 Apple</li>
+    <li>🍌 Banana</li>
+    <li>🍇 Grapes</li>
+    <li>🍊 Orange</li>
+  </ul>
+  <!-- Real-life analogy: Manager listens for updates from all employees instead of asking each one -->
+
+  <!-- ===================== -->
+  <!-- Form Handling Example -->
+  <!-- ===================== -->
+  <h2>3. Form Handling</h2>
+  <form id="myForm" class="form-box">
+    <label for="nameInput">Enter your name:</label><br><br>
+    <input type="text" id="nameInput" placeholder="Type your name" required>
+    <br><br>
+    <button type="submit">Submit</button>
+  </form>
+  <p id="output"></p>
+  <!-- Real-life analogy: A receptionist (form) collects info before passing it to the system -->
+
+  <script>
+    // =========================
+    // 1. EVENT BUBBLING
+    // =========================
+    // Child → Parent → Document
+    // Situation: Sometimes you want parent elements to know about child activity
+    document.getElementById("child").addEventListener("click", () => {
+      console.log("Child clicked");
+      alert("Child clicked 🚸");
+    });
+    document.getElementById("parent").addEventListener("click", () => {
+      console.log("Parent clicked (bubbled)");
+      alert("Parent also got the message (Bubbling) 🫂");
+    });
+
+    // =========================
+    // 2. EVENT DELEGATION
+    // =========================
+    // Instead of assigning event to each <li>, we assign it once to <ul>
+    // Situation: Useful when you have many dynamic children (e.g. chat messages, todo items)
+    document.getElementById("list").addEventListener("click", (e) => {
+      if (e.target && e.target.tagName === "LI") {
+        console.log("You clicked:", e.target.textContent);
+        alert("You selected: " + e.target.textContent);
+      }
+    });
+
+    // =========================
+    // 3. FORM HANDLING
+    // =========================
+    // Prevent reload & capture data
+    // Situation: Login forms, search forms, feedback collection, etc.
+    document.getElementById("myForm").addEventListener("submit", (e) => {
+      e.preventDefault(); // stop page reload
+      const inputValue = document.getElementById("nameInput").value;
+      console.log("Form submitted with:", inputValue);
+      document.getElementById("output").textContent = 
+        `Hello, ${inputValue}! 🎉 Your form was submitted successfully.`;
+    });
+  </script>
+
+</body>
+</html>

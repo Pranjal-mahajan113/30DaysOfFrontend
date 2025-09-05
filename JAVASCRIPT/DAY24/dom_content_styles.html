@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 24 — Changing Content & Styles</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    .box {
+      width: 200px;
+      height: 100px;
+      border: 2px solid black;
+      margin: 10px 0;
+      text-align: center;
+      line-height: 100px;
+    }
+
+    .highlight {
+      background-color: yellow;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .active {
+      border: 3px dashed red;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Heading with ID -->
+  <h1 id="main-title">Original Title</h1>
+
+  <!-- Paragraph -->
+  <p>This is a normal paragraph.</p>
+
+  <!-- Div box for class manipulation -->
+  <div class="box hidden">I am a box</div>
+
+  <script>
+    // ===============================
+    // Day 24 — Changing Content & Styles
+    // ===============================
+
+    // --- 1. innerHTML ---
+    // Replaces the entire inner HTML (can include tags, formatting)
+    document.getElementById("main-title").innerHTML = "<span style='color:blue'>Hello, JavaScript!</span>";
+    // Analogy: like rewriting a book page with text + images
+
+    // --- 2. textContent ---
+    // Replaces only text (HTML tags will be treated as plain text)
+    document.querySelector("p").textContent = "<b>Just some plain text here.</b>";
+    // Analogy: like typing plain text without formatting
+
+    // --- 3. style property ---
+    // Directly change CSS styles inline
+    const heading = document.getElementById("main-title");
+    heading.style.backgroundColor = "lightgreen";
+    heading.style.fontSize = "80px";
+    heading.style.padding = "20px";
+    // Analogy: like manually applying makeup each time (not reusable)
+
+    // --- 4. classList ---
+    const box = document.querySelector(".box");
+
+    // Add a class → applies a new style
+    box.classList.add("highlight");
+    // Analogy: sticking a "New" label on a product
+
+    // Remove a class → takes away style
+    box.classList.remove("hidden");
+    // Analogy: removing a sticky note label
+
+    // Toggle a class → switch ON/OFF
+    box.classList.toggle("active");
+    // Analogy: like turning a switch on/off (active or not)
+
+    // --- 5. getAttribute & setAttribute ---
+    // Dynamically changing attributes of an element
+    heading.setAttribute("title", "This is a tooltip!");
+    console.log("Title attribute:", heading.getAttribute("title"));
+    // Analogy: like adding/removing labels from a product box
+
+    // --- 6. innerText ---
+    // Similar to textContent but respects CSS (like hidden elements)
+    console.log("innerText:", heading.innerText);
+    // Analogy: innerText = what user SEES, textContent = ALL text (even hidden)
+
+    // --- Interview Style Key Differences ---
+    // innerHTML → parses HTML tags
+    // textContent → plain text, ignores HTML
+    // innerText → visible text (depends on CSS)
+    // style → inline style changes (not reusable, not best practice)
+    // classList → best for adding/removing/toggling CSS (clean, reusable)
+  </script>
+
+</body>
+
+</html>
