@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubbling & stopPropagation</title>
+    <style>
+        /* Basic styling for clarity */
+        #outer {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid blue;
+        }
+
+        #inner {
+            width: 100px;
+            height: 100px;
+            background-color: lightcoral;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid red;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Parent box -->
+    <div id="outer">
+        <!-- Child box -->
+        <div id="inner">Click Here</div>
+    </div>
+
+    <script>
+        // ===============================
+        // Event Bubbling Example
+        // ===============================
+
+        // Step 1: Add event listener to outer (parent)
+        document.getElementById("outer").addEventListener("click", () => {
+            console.log("Outer");
+        });
+
+        // Step 2: Add event listener to inner (child)
+        document.getElementById("inner").addEventListener("click", (e) => {
+            // stopPropagation stops the bubbling (event will not reach parent)
+            e.stopPropagation();
+            console.log("Inner");
+        });
+
+        // ===============================
+        // Flow:
+        // 1. If you click on INNER div:
+        //    -> By default, event bubbles up: "Inner" then "Outer"
+        //    -> But here we used e.stopPropagation()
+        //    -> So only "Inner" will print
+        //
+        // 2. If you click on OUTER div:
+        //    -> Only "Outer" will print (no child involved)
+    </script>
+
+</body>
+
+</html>
+
+<!-- Event Bubbling: By default, events move upward from child → parent → root.
+
+stopPropagation(): Stops the bubbling at the current element (child doesn’t let parent know).
+
+Use Cases:
+
+When you don’t want parent listeners to trigger accidentally (e.g., modal close on outside click).
+
+When you need fine control in complex UIs. -->

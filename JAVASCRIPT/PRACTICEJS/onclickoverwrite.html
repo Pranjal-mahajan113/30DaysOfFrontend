@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>onclick vs click()</title>
+</head>
+
+<body>
+  <!-- Button in HTML -->
+  <button id="btn">Click</button>
+
+  <script>
+    // ===============================
+    // Step 1: Get the button element
+    // ===============================
+    const btn = document.getElementById("btn");
+
+    // ===============================
+    // Step 2: Assign first onclick handler
+    // ===============================
+    btn.onclick = () => console.log("First");
+
+    // ⚡ Here onclick property is set → "First"
+    // But in JS, onclick can hold only ONE function at a time
+
+    // ===============================
+    // Step 3: Assign second onclick handler
+    // ===============================
+    btn.onclick = () => console.log("Second");
+
+    // ⚡ This overwrites the previous "First" handler
+    // Now ONLY "Second" will remain as active handler
+
+    // ===============================
+    // Step 4: Programmatically trigger click
+    // ===============================
+    btn.click();
+
+    // ⚡ btn.click() is a built-in DOM method
+    // It simulates a user clicking the button
+    // So, the current onclick handler ("Second") runs
+  </script>
+</body>
+
+</html>

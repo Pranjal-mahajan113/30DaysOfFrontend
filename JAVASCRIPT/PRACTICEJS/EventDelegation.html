@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Delegation Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 10px;
+            margin: 5px 0;
+            background-color: lightblue;
+            border: 1px solid blue;
+            cursor: pointer;
+        }
+
+        li:hover {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Event Delegation Demo</h1>
+
+    <!-- Parent element -->
+    <ul id="menu">
+        <li>Home</li>
+        <li>About</li>
+        <li>Services</li>
+        <li>Contact</li>
+    </ul>
+
+    <script>
+        // ===============================
+        // Event Delegation Example
+        // ===============================
+
+        // Instead of adding click to each <li>,
+        // we add one listener to <ul> (the parent).
+        document.getElementById("menu").addEventListener("click", (e) => {
+            // Step 1: Check if clicked element is <li>
+            if (e.target && e.target.tagName === "LI") {
+                console.log("You clicked:", e.target.textContent);
+            }
+        });
+
+        // ===============================
+        // Flow:
+        // - User clicks on any <li>.
+        // - Event bubbles up to parent <ul>.
+        // - Parent listener checks event.target.
+        // - Logs which <li> was clicked.
+        //
+        // This way we manage multiple child events
+        // with ONE parent listener.
+    </script>
+
+</body>
+
+</html>
+
+<!-- "Event bubbling is the default behavior of events flowing child → parent. But in real-world large applications,
+ event delegation is more widely used because it is efficient,
+ works for dynamically added elements, and keeps the code clean." -->
