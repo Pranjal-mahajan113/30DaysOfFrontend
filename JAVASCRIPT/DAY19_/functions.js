@@ -12,7 +12,7 @@ sayHello();
 // 2. Function Expression
 // ------------------------------------
 // Function stored in a variable
-const sayHi = function() {
+const sayHi = function () {
     console.log("Hi, this is a Function Expression!");
 };
 sayHi();
@@ -33,7 +33,7 @@ console.log("Declaration:", add(2, 3));
 // 4. Anonymous Function
 // ------------------------------------
 // Function without a name, usually used inside expressions
-const greet = function(name) {
+const greet = function (name) {
     return "Hello " + name;
 };
 console.log("Anonymous Function:", greet("Alice"));
@@ -45,7 +45,7 @@ console.log("Anonymous Function:", greet("Alice"));
 // Function inside another function
 function outer() {
     console.log("Outer function running...");
-    
+
     function inner() {
         console.log("Inner function running...");
     }
@@ -63,7 +63,7 @@ outer();
 function multiply(a, b) {
     return a * b;
 }
-console.log("Multiply:", multiply(10, 20)); 
+console.log("Multiply:", multiply(10, 20));
 // Here a,b = parameters, 10,20 = arguments
 
 
@@ -91,7 +91,7 @@ runFunction(sayWelcome);
 
 // returning function
 function getFunction() {
-    return function() {
+    return function () {
         return "Returned Function!";
     };
 }
@@ -111,3 +111,19 @@ console.log("Arrow Function:", arrowHello("Bob"));
 const square = n => n * n;
 console.log("Arrow One-Liner:", square(5));
 
+
+
+var x = 1;
+a();
+b();
+console.log(x);
+
+
+function a() {
+    var x = 10;
+    console.log(x);
+}
+function b() {
+    var x = 100;
+    console.log(x);
+}

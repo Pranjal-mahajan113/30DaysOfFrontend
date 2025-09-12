@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hoisting in JavaScript</title>
+</head>
+<body>
+  <h2>JavaScript Hoisting</h2>
+  <p>Open Console (F12 → Console) to see outputs</p>
+
+  <script>
+    // ===============================
+    // 1. FUNCTION DECLARATION (Normal Function)
+    // ===============================
+    // ✅ Function declarations are fully hoisted.
+    // You can call them before they are defined.
+
+    sayHello(); // Works fine
+
+    function sayHello() {
+      console.log("1️⃣ Hello from NORMAL function (works before definition)");
+    }
+
+    // ===============================
+    // 2. FUNCTION EXPRESSION
+    // ===============================
+    // Function assigned to a variable.
+    // Variable is hoisted BUT value (function body) is not.
+    // During Creation Phase → greet = undefined
+    // So calling greet() before definition gives ❌ TypeError.
+
+    try {
+      greet(); // ❌ Error: greet is not a function
+    } catch (e) {
+      console.log(" 2️⃣ Error calling greet() before definition →", e.message);
+    }
+
+    var greet = function() {
+      console.log(" 2️⃣ Hi from FUNCTION EXPRESSION (works only after definition)");
+    };
+
+    greet(); // ✅ Works here
+
+    // ===============================
+    // 3. ARROW FUNCTION
+    // ===============================
+    // Similar to function expressions.
+    // Hoisted as variable but not initialized (Temporal Dead Zone with let/const).
+
+    try {
+      sayHi(); // ❌ ReferenceError
+    } catch (e) {
+      console.log("3️⃣ Error calling sayHi() before definition →", e.message);
+    }
+
+    const sayHi = () => {
+      console.log("3️⃣ Hello from ARROW function (only after definition)");
+    };
+
+    sayHi(); // ✅ Works here
+
+    // ===============================
+    // REAL LIFE ANALOGY
+    // ===============================
+    // - Normal function = Recipe fully written on fridge. Anyone can use anytime.
+    // - Function expression / arrow function = Only recipe NAME written first,
+    //   actual instructions written later. If you try cooking before instructions → ❌ error.
+  </script>
+</body>
+</html>
+
+
+
+
+<!-- 
+🔹 1. What is Hoisting?
+
+Definition:
+Hoisting in JavaScript means that during execution, all variable and function declarations are moved to the top of their scope (memory phase) before the actual code runs.
+
+👉 This is why you can sometimes use functions or variables before declaring them (but with some limitations).
+
+🔹 2. JavaScript Execution Process (Simple Steps)
+
+1. Creation Phase (Memory allocation)
+
+JavaScript engine scans the code before running it.
+
+All function declarations are stored completely in memory.
+
+All variables are allocated memory but only initialized as undefined.
+
+2. Execution Phase (Line by line run)
+
+Code is executed top to bottom.
+
+Actual values are assigned to variables.
+
+Functions are called when the execution reaches them.
+
+🔹 3. Function Declaration Hoisting
+
+✅ A normal function (declared with function) is fully hoisted.
+You can call it before or after definition.
+
+sayHello(); // Works
+function sayHello() {
+  console.log("Hello!");
+}
+
+🔹 4. Function Expression Hoisting
+
+❌ A function stored in a variable is not fully hoisted.
+The variable name is hoisted, but it’s set to undefined until execution reaches it.
+
+greet(); // ❌ Error: greet is not a function
+var greet = function() {
+  console.log("Hi!");
+};
+
+🔹 5. Arrow Function Hoisting
+
+👉 An arrow function behaves like a variable.
+
+Only the variable name is hoisted.
+
+The function body is not hoisted.
+
+If you try to call it before definition → ReferenceError (if let/const) or TypeError (if var).
+
+sayHi(); // ❌ Error
+const sayHi = () => console.log("Hi!");
+
+
+✅ Quick Real-Life Analogy:
+
+Function Declaration = Recipe fully written on the fridge (you can use it anytime).
+
+Function Expression / Arrow Function = Only the recipe title is written first. Instructions come later. If you try to cook before instructions → error -->
