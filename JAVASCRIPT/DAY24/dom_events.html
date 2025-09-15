@@ -1,44 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Day 24 — Events in JavaScript</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
 
-        .btn {
-            margin: 5px;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            background-color: rgb(67, 131, 131);
-        }
+      .btn {
+        margin: 5px;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        background-color: rgb(67, 131, 131);
+      }
 
-        .hover-box {
-            width: 150px;
-            height: 100px;
-            background: lightblue;
-            margin: 15px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+      .hover-box {
+        width: 150px;
+        height: 100px;
+        background: lightblue;
+        margin: 15px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-        .focus-input {
-            padding: 8px;
-            border: 2px solid gray;
-            margin: 5px 0;
-        }
+      .focus-input {
+        padding: 8px;
+        border: 2px solid gray;
+        margin: 5px 0;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <h1>Day 24 — Events</h1>
 
     <!-- Buttons for click events -->
@@ -53,100 +51,105 @@
     <div id="hoverBox" class="hover-box">Hover here</div>
 
     <!-- Keyboard events -->
-    <input type="text" id="keyInput" class="focus-input" placeholder="Type something...">
+    <input
+      type="text"
+      id="keyInput"
+      class="focus-input"
+      placeholder="Type something..."
+    />
 
     <!-- Form events -->
     <form id="myForm">
-        <input type="text" placeholder="Your Name" required class="focus-input">
-        <button type="submit" class="btn">Submit</button>
+      <input type="text" placeholder="Your Name" required class="focus-input" />
+      <button type="submit" class="btn">Submit</button>
     </form>
 
     <script>
-        // ===============================
-        // Day 24 — Events
-        // ===============================
-        // Event = Something happens (click, keypress, hover, submit, etc.)
-        // Real Life Analogy: Events are like doorbells 🚪🔔
-        // - onclick = only one person can respond
-        // - addEventListener = multiple people can respond
-        // - event object = info about who rang the bell, when, etc.
+      // ===============================
+      // Day 24 — Events
+      // ===============================
+      // Event = Something happens (click, keypress, hover, submit, etc.)
+      // Real Life Analogy: Events are like doorbells 🚪🔔
+      // - onclick = only one person can respond
+      // - addEventListener = multiple people can respond
+      // - event object = info about who rang the bell, when, etc.
 
-        // --- 1. Click Events ---
+      // --- 1. Click Events ---
 
-        // Old way (onclick, only one handler allowed)
-        document.getElementById("btn1").onclick = function () {
-            alert("Button 1 clicked! (onclick)");
-        };
+      // Old way (onclick, only one handler allowed)
+      document.getElementById("btn1").onclick = function () {
+        alert("Button 1 clicked! (onclick)");
+      };
 
-        // Modern way (addEventListener, multiple handlers possible)
-        document.getElementById("btn2").addEventListener("click", () => {
-            alert("Button 2 clicked! (addEventListener)");
-        });
+      // Modern way (addEventListener, multiple handlers possible)
+      document.getElementById("btn2").addEventListener("click", () => {
+        alert("Button 2 clicked! (addEventListener)");
+      });
 
-        // Event Object example
-        document.getElementById("btn3").addEventListener("click", (event) => {
-            console.log("Event type:", event.type);
-            console.log("Clicked element:", event.target);
-        });
+      // Event Object example
+      document.getElementById("btn3").addEventListener("click", (event) => {
+        console.log("Event type:", event.type);
+        console.log("Clicked element:", event.target);
+      });
 
-        // --- 2. Double Click Event ---
-        document.getElementById("btn4").addEventListener("dblclick", () => {
-            alert("Button double-clicked!");
-        });
+      // --- 2. Double Click Event ---
+      document.getElementById("btn4").addEventListener("dblclick", () => {
+        alert("Button double-clicked!");
+      });
 
-        // --- 3. Mouse Events ---
-        const hoverBox = document.getElementById("hoverBox");
+      // --- 3. Mouse Events ---
+      const hoverBox = document.getElementById("hoverBox");
 
-        hoverBox.addEventListener("mouseover", () => {
-            hoverBox.style.backgroundColor = "lightgreen";
-            hoverBox.textContent = "Mouse Over!";
-        });
+      hoverBox.addEventListener("mouseover", () => {
+        hoverBox.style.backgroundColor = "lightgreen";
+        hoverBox.textContent = "Mouse Over!";
+      });
 
-        hoverBox.addEventListener("mouseout", () => {
-            hoverBox.style.backgroundColor = "lightblue";
-            hoverBox.textContent = "Hover here";
-        });
+      hoverBox.addEventListener("mouseout", () => {
+        hoverBox.style.backgroundColor = "lightblue";
+        hoverBox.textContent = "Hover here";
+      });
 
-        // --- 4. Keyboard Events ---
-        const keyInput = document.getElementById("keyInput");
+      // --- 4. Keyboard Events ---
+      const keyInput = document.getElementById("keyInput");
 
-        keyInput.addEventListener("keydown", (event) => {
-            console.log("Key Down:", event.key);
-        });
+      keyInput.addEventListener("keydown", (event) => {
+        console.log("Key Down:", event.key);
+      });
 
-        keyInput.addEventListener("keyup", (event) => {
-            console.log("Key Up:", event.key);
-        });
+      keyInput.addEventListener("keyup", (event) => {
+        console.log("Key Up:", event.key);
+      });
 
-        keyInput.addEventListener("input", (event) => {
-            console.log("Current Value:", event.target.value);
-        });
+      keyInput.addEventListener("input", (event) => {
+        console.log("Current Value:", event.target.value);
+      });
 
-        // --- 5. Focus / Blur Events ---
-        keyInput.addEventListener("focus", () => {
-            keyInput.style.borderColor = "green";
-            console.log("Input focused");
-        });
+      // --- 5. Focus / Blur Events ---
+      keyInput.addEventListener("focus", () => {
+        keyInput.style.borderColor = "green";
+        console.log("Input focused");
+      });
 
-        keyInput.addEventListener("blur", () => {
-            keyInput.style.borderColor = "gray";
-            console.log("Input blurred");
-        });
+      keyInput.addEventListener("blur", () => {
+        keyInput.style.borderColor = "gray";
+        console.log("Input blurred");
+      });
 
-        // --- 6. Form Events ---
-        const form = document.getElementById("myForm");
+      // --- 6. Form Events ---
+      const form = document.getElementById("myForm");
 
-        form.addEventListener("submit", (event) => {
-            event.preventDefault(); // stop page reload
-            alert("Form submitted successfully!");
-        });
+      form.addEventListener("submit", (event) => {
+        event.preventDefault(); // stop page reload
+        alert("Form submitted successfully!");
+      });
 
-        // --- 7. Event Bubbling Example ---
-        document.body.addEventListener("click", (e) => {
-            console.log("Body clicked (bubbled from child):", e.target.tagName);
-        });
+      
+      document.body.addEventListener("click", (e) => {
+        if (e.target.classList.contains("btn")) {
+          console.log("Button clicked via delegation:", e.target.textContent);
+        }
+      });
     </script>
-
-</body>
-
+  </body>
 </html>

@@ -84,9 +84,11 @@
     // =========================
     // Child → Parent → Document
     // Situation: Sometimes you want parent elements to know about child activity
-    document.getElementById("child").addEventListener("click", () => {
+    document.getElementById("child").addEventListener("click", (e) => {
       console.log("Child clicked");
       alert("Child clicked 🚸");
+      // e.stopPropagation ();
+
     });
     document.getElementById("parent").addEventListener("click", () => {
       console.log("Parent clicked (bubbled)");

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM PRACTICE</title>
+  </head>
+  <body>
+     <!-- 1..================================================================================================================================== -->
+    <h1 style="background-color: aqua">Level 1</h1>
+    <p id="p1">Hello World</p>
+    <button id="changeBtn">Change Text</button>
+    <br />
+    <br />
+    <!--2.. ================================================================================================================================== -->
+    <input type="text" id="Inputname" />
+
+    <br />
+    <br />
+    <button id="Showbtn">Show Name</button>
+    <p id="output"></p>
+
+  <!-- 3...================================================================================================================================== -->
+
+    <h1 style="background-color: cadetblue;">Level 2</h1>
+    <p id="p2">original Text</p>
+    <button id="ToggleBtn">Toggle</button>
+    <br />
+    <br /><br />
+    <!--4...================================================================================================================================ -->
+
+    <h4 >Counter app</h3>
+    <p id="p4">0</p>
+    <button id="Increasebtn">Increase</button>
+     <!-- 5...================================================================================================================================ -->
+      <h4>Change Color</h4>
+      <p id="p5">This is my Paragraph</p>
+      <button id="ChangeColor">Change Color</button>
+
+       <!-- 6...================================================================================================================================== -->
+        <p id="p6">Hide And Shown Paragraph</p>
+        <button id="Hidebtn">Hide</button>
+
+
+  </body>
+  <script>
+    const para = document.getElementById("p1");
+    document.getElementById("changeBtn").addEventListener("click", () => {
+      para.textContent = "Text Changed";
+    });
+    // ================Show Btn=====================
+    const Inputvalue = document.getElementById("Inputname");
+    const outputvalue = document.getElementById("output");
+    document.getElementById("Showbtn").addEventListener("click", () => {
+      outputvalue.textContent = `Hello ${Inputvalue.value}`;
+      document.getElementById("Inputname").value = "";
+    });
+
+    // =============Toggle Btn============
+    const para2 = document.getElementById("p2");
+    // document.getElementById("ToggleBtn").addEventListener("click", () => {
+    //   if (para2.textContent === "original Text") {
+    //     para2.textContent = "New text";
+    //   } else {
+    //     para2.textContent = "original Text";
+    //   }
+    // });
+
+    let isOriginal = false;
+    const toggleBtn = document.getElementById("ToggleBtn");
+    toggleBtn.addEventListener("click", () => {
+      para2.textContent = isOriginal ? "New text" : "original Text";
+      isOriginal = !isOriginal;
+    });
+
+    // =====================Counter App=============
+    const para4 = document.getElementById("p4");
+    let count = 0;
+    document.getElementById("Increasebtn").addEventListener("click", () => {
+      count = count +1;
+      para4.textContent = count;
+    });
+    // ===========================Change Color==============================================
+    const para5 = document.getElementById("p5");
+    const colors = ["red","blue","green","skyblue","pink"];
+    let index=0;
+    document.getElementById("ChangeColor").addEventListener("click",()=>{
+        p5.style.backgroundColor= colors[index];
+        index++;
+        if(index === colors.length) {
+            index=0;
+        }
+
+
+    });
+
+    const para6 = document.getElementById("p6");
+    document.getElementById("Hidebtn").addEventListener ("click",()=>{
+      if(para6.style.display ==="none"){
+        para6.style.display = "block"
+      }
+      else {
+        para6.style.display = "none";
+      }
+    });
+
+
+  </script>
+</html>
