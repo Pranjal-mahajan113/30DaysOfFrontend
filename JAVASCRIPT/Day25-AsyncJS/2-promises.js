@@ -1,95 +1,84 @@
-// 🔥 Async/Await in JavaScript
-// async → makes a function return a Promise
-// await → pauses execution until the Promise settles (resolve/reject)
+// 🔥 Promises in JavaScript
+// A Promise represents a value that will be available now, in the future, or never.
+// States: Pending → Fulfilled (resolve) OR Rejected (reject).
 
 // --------------------------------------------------------------------
-// 👉 Example 1: Basic Async/Await
+// 👉 Example 1: Basic Promise (Success Path)
 // --------------------------------------------------------------------
-console.log("👉 Example 1: Basic Async/Await");
+console.log("👉 Example 1: Promise Basics");
 
-function fakeFetch(data, delay) {
-  return new Promise((resolve) => {
-    setTimeout(() => resolve(`✅ Data: ${data}`), delay);
+let myPromise = new Promise((resolve, reject) => {
+  // Executor runs IMMEDIATELY when Promise is created
+  console.log("Promise executor started...");
+
+  setTimeout(() => {
+    let success = true; // try false to see reject path
+    if (success) resolve("✅ Task completed");
+    else reject("❌ Task failed");
+  }, 1000);
+});
+
+myPromise
+  .then((result) => {
+    console.log("THEN:", result); // runs if resolved
+  })
+  .catch((error) => {
+    console.log("CATCH:", error); // runs if rejected
+  })
+  .finally(() => {
+    console.log("FINALLY: Always runs (cleanup)");
   });
-}
-
-async function getData() {
-  console.log("Start fetching...");
-  const result = await fakeFetch("User Info", 1000); // waits here
-  console.log("Received:", result);
-  console.log("Done fetching!\n");
-}
-
-getData();
 
 // --------------------------------------------------------------------
-// 👉 Example 2: Error Handling with try/catch
+// 👉 Example 2: Reject Path
 // --------------------------------------------------------------------
-console.log("👉 Example 2: Error Handling");
+console.log("\n👉 Example 2: Reject Path");
 
-function fetchWithError() {
-  return new Promise((_, reject) =>
-    setTimeout(() => reject("❌ Server down"), 800)
-  );
-}
+let failedPromise = new Promise((resolve, reject) => {
+  setTimeout(() => reject("🚨 Network error"), 500);
+});
 
-async function loadData() {
-  try {
-    const data = await fetchWithError();
-    console.log("Data:", data);
-  } catch (error) {
-    console.log("Caught error:", error);
-  } finally {
-    console.log("Cleanup after error\n");
-  }
-}
-
-loadData();
+failedPromise
+  .then((res) => console.log("OK:", res)) // skipped
+  .catch((err) => console.log("CATCH:", err)) // runs
+  .finally(() => console.log("Cleanup done!"));
 
 // --------------------------------------------------------------------
-// 👉 Example 3: Sequential vs Parallel
+// 👉 Example 3: Promise Chaining
 // --------------------------------------------------------------------
-console.log("👉 Example 3: Sequential vs Parallel");
+console.log("\n👉 Example 3: Chaining");
 
-function fetchItem(name, delay) {
-  return new Promise((resolve) =>
-    setTimeout(() => resolve(`📦 Item: ${name}`), delay)
-  );
-}
-
-// Sequential (one after another → slower)
-async function sequential() {
-  console.time("Sequential");
-  const item1 = await fetchItem("Shoes", 1000);
-  console.log(item1);
-  const item2 = await fetchItem("T-shirt", 1000);
-  console.log(item2);
-  console.timeEnd("Sequential");
-}
-
-// Parallel (faster using Promise.all)
-async function parallel() {
-  console.time("Parallel");
-  const [item1, item2] = await Promise.all([
-    fetchItem("Shoes", 1000),
-    fetchItem("T-shirt", 1000),
-  ]);
-  console.log(item1, item2);
-  console.timeEnd("Parallel");
-}
-
-sequential().then(parallel);
+Promise.resolve(2)
+  .then((x) => {
+    console.log("First then:", x);
+    return x * 3; // passes 6 to next then
+  })
+  .then((y) => {
+    console.log("Second then:", y);
+    return y + 4; // passes 10
+  })
+  .then((z) => console.log("Final result:", z)) // prints 10
+  .catch((err) => console.log("Error:", err));
 
 // --------------------------------------------------------------------
-// 👉 Example 4: Real-Life Analogy (Interview Friendly)
+// 👉 Example 4: Error Propagation
 // --------------------------------------------------------------------
-// Think of async/await as ordering food at a restaurant 🍽️:
-//
-// - async function = waiter taking your order (it promises food later)
-// - await = you WAIT until the chef prepares your food
-// - try/catch = if kitchen burns food, waiter handles error gracefully
-// - Promise.all = you order pizza + drink together (parallel serving)
-//
-// ✅ Interview Answer:
-// Async/await makes asynchronous code look synchronous,
-// easier to read than .then/.catch chains.
+console.log("\n👉 Example 4: Error Propagation");
+
+new Promise((resolve) => resolve("Start"))
+  .then((msg) => {
+    console.log(msg);
+    throw new Error("💥 Something went wrong"); // forces rejection
+  })
+  .then(() => console.log("This won't run"))
+  .catch((e) => console.log("Caught:", e.message)) // error handled here
+  .finally(() => console.log("Cleanup even after error"));
+
+// --------------------------------------------------------------------
+// 👉 Example 5: Life Analogy (Interview Friendly)
+// --------------------------------------------------------------------
+// Think of a Promise as an Online Order:
+// - You place the order (Promise created → pending)
+// - If delivery succeeds (resolve) → .then runs (you enjoy the item)
+// - If delivery fails (reject) → .catch runs (refund / retry)
+// - Regardless (success/fail) → .finally runs (close the app, cleanup)
