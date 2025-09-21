@@ -1,4 +1,4 @@
-//  5. Template Literals (Revisited)
+//  5. Template Literals 
 
 // Definition: Template literals use backticks (``) 
 // and allow embedding variables, expressions, and multiline strings.
