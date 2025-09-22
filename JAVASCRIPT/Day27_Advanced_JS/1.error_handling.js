@@ -17,7 +17,7 @@ function riskyOperation() {
   throw new Error("Something went wrong!");
 }
 
-// 👉 Interview Note:
+
 // try: Code to test
 // catch: Handles any thrown errors
 // finally: Executes regardless of success/failure (close DB, stop loaders)

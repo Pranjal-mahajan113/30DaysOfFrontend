@@ -52,7 +52,7 @@ sessionStorage.removeItem("token");
 
 
 // ====================================================================
-// 🧑‍💻 INTERVIEW NOTES
+// NOTES
 // ====================================================================
 // • localStorage → Persists until manually cleared (best for preferences, theme, auth tokens).
 // • sessionStorage → Clears when the tab or window closes (best for temporary data like a one-time form).
