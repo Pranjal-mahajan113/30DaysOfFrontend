@@ -54,7 +54,9 @@ Daily coding tasks and mini-projects that turned theory into real skills:
 ---
 
   
-- **LinkedIn:** [Your LinkedIn Profile](www.linkedin.com/in/pranjal-mahajan-21a7ba361)  
+- **LinkedIn:** [Your LinkedIn Profile](www.linkedin.com/in/pranjal-mahajan-21a7ba361)
+- - **GitHub:** [Pranjal Mahajan](https://github.com/Pranjal-mahajan113)
+
 
 ---
 
